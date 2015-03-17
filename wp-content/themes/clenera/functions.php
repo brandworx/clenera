@@ -33,6 +33,8 @@ function clenera_setup() {
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
 
+	add_theme_support( "post-thumbnails" );
+
 	/*
 	 * Let WordPress manage the document title.
 	 * By adding theme support, we declare that this theme does not use a
@@ -51,6 +53,7 @@ function clenera_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'clenera' ),
+		'footer' => __( 'Footer Menu', 'clenera' ),
 		'mobile' => __( 'Mobile Menu', 'clenera' ),
 	) );
 
@@ -75,6 +78,9 @@ function clenera_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+	//Custom Thumbnail Sizes
+	add_image_size( 'head', 1700, 500, true ); // (cropped)
 }
 endif; // clenera_setup
 add_action( 'after_setup_theme', 'clenera_setup' );
@@ -91,8 +97,8 @@ function clenera_widgets_init() {
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 }
 add_action( 'widgets_init', 'clenera_widgets_init' );
@@ -103,6 +109,24 @@ add_action( 'widgets_init', 'clenera_widgets_init' );
 function clenera_scripts() {
 	wp_enqueue_style( 'clenera-style', get_stylesheet_uri() );
 
+	wp_enqueue_style( 'fancyBox-style', get_template_directory_uri() . '/js/fancyBox/source/jquery.fancybox.css' );
+
+	wp_enqueue_style( 'fancyBox-style-2', get_template_directory_uri() . '/js/fancyBox/source/helpers/jquery.fancybox-buttons.css' );
+
+	wp_enqueue_style( 'jquery-ui-style', get_template_directory_uri() . '/js/jquery-ui/jquery-ui.min.css' );
+
+	wp_enqueue_script( 'jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js', array(), '1', true );
+
+	wp_enqueue_script( 'jquery-ui-scripts', get_template_directory_uri() . '/js/jquery-ui/jquery-ui.min.js', array(), '1', true );
+
+	wp_enqueue_script( 'fancyBox-scripts', get_template_directory_uri() . '/js/fancyBox/source/jquery.fancybox.pack.js', array(), '1', true );
+
+	wp_enqueue_script( 'fancyBox-scripts-2', get_template_directory_uri() . '/js/fancyBox/source/helpers/jquery.fancybox-buttons.js', array(), '1', true );
+
+	wp_enqueue_script( 'fancyBox-scripts-3', get_template_directory_uri() . '/js/fancyBox/source/helpers/jquery.fancybox-media.js', array(), '1', true );
+
+	wp_enqueue_script( 'custom-scripts', get_template_directory_uri() . '/js/custom.js', array(), '1', true );
+
 	wp_enqueue_script( 'clenera-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
 
 	wp_enqueue_script( 'clenera-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
@@ -112,6 +136,18 @@ function clenera_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'clenera_scripts' );
+
+
+function custom_excerpt_length( $length ) {
+	return 35;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+function new_excerpt_more( $more ) {
+	return '...';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
 
 /**
  * Implement the Custom Header feature.
@@ -137,6 +173,7 @@ require get_template_directory() . '/inc/customizer.php';
  * Load Jetpack compatibility file.
  */
 require get_template_directory() . '/inc/jetpack.php';
+
 
 if( function_exists('acf_add_options_page') ) {
 	

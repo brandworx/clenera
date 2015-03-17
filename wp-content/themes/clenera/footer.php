@@ -10,12 +10,19 @@
 
 	</div><!-- #content -->
 
+	<section id="footerCTA">
+		<h2><?php the_field('footer_cta_text','option'); ?></h2>
+		<a class="button farm" href="<?php the_field('footer_cta_link','option'); ?>"><?php the_field('footer_cta','option'); ?></a>
+		<a id="mobileFootCTA" class="button farm" href="<?php the_field('footer_cta_link','option'); ?>"><?php the_field('footer_cta_mobile','option'); ?></a>
+	</section>
+
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'clenera' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'clenera' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'clenera' ), 'clenera', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+			<span>&#169; 2015 Clēnera</span>
 		</div><!-- .site-info -->
+		<div id="footerMenu">
+			<?php wp_nav_menu( array( 'theme_location' => 'footer' ) ); ?>
+		</div>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
