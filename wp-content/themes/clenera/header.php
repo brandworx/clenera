@@ -17,9 +17,6 @@
 <?php wp_head(); ?>
 </head>
 
-<script src="//use.typekit.net/kcn3wyu.js"></script>
-<script>try{Typekit.load();}catch(e){}</script>
-
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'clenera' ); ?></a>

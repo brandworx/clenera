@@ -29,7 +29,7 @@ get_header(); ?>
 			<?php 
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-			query_posts( array( 'post_type' => 'team_member', 'posts_per_page' => 8, 'paged' => $paged ) );
+			query_posts( array( 'post_type' => 'team_member', 'orderby' => 'date', 'order' => 'ASC', 'posts_per_page' => 8, 'paged' => $paged ) );
 
 			if(have_posts()) : ?> 
 

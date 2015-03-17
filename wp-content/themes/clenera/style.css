@@ -50,7 +50,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 1.0 Normalize
 --------------------------------------------------------------*/
 html {
-	font-family: "expo-sans-pro",sans-serif;
+	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust:     100%;
 }
@@ -271,7 +271,7 @@ body, p {
 
 h1, h2, h3, h4, h5, h6 {
 	color: #1c4467;
-	font-family: "expo-serif-pro",sans-serif;
+	font-family: serif;
 	margin: 0;
 	line-height: normal;
 }
@@ -789,12 +789,10 @@ a:active {
 	display: inline;
 }
 
-.entry-title { margin-top: -10px; }
-
 .page-content,
 .entry-content,
 .entry-summary {
-	margin: 1.5em 0 0;
+	margin: 3% 0 0;
 }
 
 .page-links {
@@ -1152,7 +1150,7 @@ object {
 	#mobileProjectsMore { display: inline-block; }
 	#mobileFootCTA { display: inline-block; }
 	.button { font-size: 18px; }
-	#masthead { padding: 0; height: 110px; }
+	#masthead { padding: 0; height: 130px; }
 	#logo { position: relative; top: 8px; left: 8px; z-index: 32; }
 	#site-navigation { display: none; }
 	#mobileNav {
@@ -1224,12 +1222,12 @@ object {
 	#phone {
 		background: #059bcd;
 		color: #ffffff;
-		font-size: 18px;
+		font-size: 22px;
 		display: block;
 		width: 100%;
 		text-align: center;
 		position: relative;
-		padding: 0;
+		padding: 10px;
 		right: 0;
 	}
 	#featured .text p { display: none; }
@@ -1249,6 +1247,7 @@ object {
 	}
 	#mobileProjectsMore { width: 50%; }
 	#footerCTA { padding: 5% 8%; }
+	#footerCTA h2 { display: none; }
 	#footerCTA .button { display: none; }
 	#footerCTA #mobileFootCTA.button { display: inline-block; width: 50%; background-size: 14%; text-align: center; }
 	#footerCTA .button:hover { background-size: 14%; }

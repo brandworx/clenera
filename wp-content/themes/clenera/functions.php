@@ -149,6 +149,19 @@ function new_excerpt_more( $more ) {
 add_filter('excerpt_more', 'new_excerpt_more');
 
 
+
+function customize_customtaxonomy_archive_display ( $query ) {
+    if (($query->is_main_query()) && (is_tax('roles')))
+
+    $query->set( 'orderby', 'date' );
+    $query->set( 'order', 'ASC' );
+}
+ 
+//Hook the function
+ 
+add_action( 'pre_get_posts', 'customize_customtaxonomy_archive_display' );
+
+
 /**
  * Implement the Custom Header feature.
  */
