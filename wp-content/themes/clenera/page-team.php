@@ -12,7 +12,7 @@
 
 get_header(); ?>
 
-<?php get_template_part('content','head'); ?>
+<?php //get_template_part('content','head'); ?>
 
 <div id="contentWrap">
 	<div id="primary" class="content-area">
@@ -24,25 +24,34 @@ get_header(); ?>
 				</header><!-- .entry-header -->
 
 				<div class="entry-content">
-					<?php the_content(); ?>
+					<?php 
+					if(have_posts()) : while(have_posts()) : the_post();
+						echo '<div class="intro">';
+						the_content();
+						echo '</div>';
+					endwhile; endif;
+					wp_reset_query();
+					?>
 
-			<?php 
+
+			<!-- START THE LEADERSHIP SECTION -->
+			<?php
+
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-			query_posts( array( 'post_type' => 'team_member', 'orderby' => 'date', 'order' => 'ASC', 'posts_per_page' => 8, 'paged' => $paged ) );
+			query_posts( array( 'post_type' => 'team_member', 'orderby' => 'date', 'order' => 'ASC', 'posts_per_page' => -1, 'paged' => $paged ) );
 
 			if(have_posts()) : ?> 
 
-				<section id="projectsPage">
+				<section id="teamPage">
 
 				<?php while(have_posts()) : the_post(); ?>
 
-					<div class="project-entry">
-						<?php the_post_thumbnail('thumbnail'); ?>
-						<h4><?php the_title(); ?></h4>
+					<div class="team-entry">
+						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('team'); ?></a>
+						<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 						<h6><?php the_field('title'); ?></h6>
 						<?php the_excerpt(); ?>
-						<a class="button dark" href="<?php the_permalink(); ?>">Read More</a>
 					</div>
 
 				<?php endwhile; ?>
@@ -53,13 +62,14 @@ get_header(); ?>
 					<span class="alignright"><?php next_posts_link(); ?></span>
 					<span class="alignleft"><?php previous_posts_link(); ?></span>
 				</div> -->
-				<?php the_posts_navigation(); ?>
+				<?php //the_posts_navigation(); ?>
 
 				<div class="clearfix"></div>
 
 			<?php endif; ?>
 
 			<?php wp_reset_query(); ?>
+			<!-- END THE LEADERSHIP SECTION -->
 
 				</div><!-- .entry-content -->
 				

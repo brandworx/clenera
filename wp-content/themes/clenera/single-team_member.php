@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-<?php get_template_part('content','head'); ?>
+<?php //get_template_part('content','head'); ?>
 
 <div id="contentWrap">
 	<div id="primary" class="content-area">

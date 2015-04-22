@@ -30,15 +30,14 @@ get_header(); ?>
 
 					<?php if(is_tax( 'roles', 'management' )) { ?>
 						<div class="management-entry">
-							<?php the_post_thumbnail('thumbnail', array('class'=>'alignleft')); ?>
-							<h3><?php the_title(); ?>, <?php the_field('title'); ?></h3>
+							<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail', array('class'=>'alignleft')); ?></a>
+							<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?>, <?php the_field('title'); ?></a></h3>
 							<?php the_excerpt(); ?>
-							<a class="button dark" href="<?php the_permalink(); ?>">Read More</a>
 						</div>
 					<?php } else { ?>
 						<div class="project-entry">
 							<?php the_post_thumbnail('thumbnail'); ?>
-							<h4><?php the_title(); ?></h4>
+							<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
 							<h6><?php the_field('title'); ?></h6>
 							<?php the_excerpt(); ?>
 						</div>

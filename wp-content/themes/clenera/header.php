@@ -36,7 +36,6 @@
 				<div id="burger"></div>
 				<?php wp_nav_menu( array( 'theme_location' => 'mobile' ) ); ?>
 			</nav>
-			<a id="phone" href="tel:<?php echo $phone; ?>"><?php echo $phone; ?></a>
 		</div><!-- .site-branding -->
 	</header><!-- #masthead -->
 

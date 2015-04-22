@@ -10,7 +10,7 @@ get_header(); ?>
 <?php get_template_part('content','head'); ?>
 
 <div id="contentWrap">
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area full">
 		<main id="main" class="site-main" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
@@ -26,10 +26,13 @@ get_header(); ?>
 
 		<?php endwhile; // end of the loop. ?>
 
+		<div id="postNav">
+			<div class="alignleft"><?php previous_post_link('%link', '<< Prev Project'); ?></div>
+			<div class="alignright"><?php next_post_link('%link', 'Next Project >>'); ?></div>
+		</div>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-	<?php get_sidebar(); ?>
 </div>
 
 <?php get_footer(); ?>
