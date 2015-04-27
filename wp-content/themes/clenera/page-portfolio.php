@@ -12,7 +12,7 @@
 
 get_header(); ?>
 
-<?php get_template_part('content','head'); ?>
+<?php get_template_part('content','states'); ?>
 
 <div id="contentWrap">
 	<?php
@@ -33,7 +33,7 @@ get_header(); ?>
 		<?php if($fac) { ?>
 		<div class="data-item">
 			<span>Facilities</span>
-			<h2 class="count"><?php echo $fac; ?></h2>
+			<div class="count"><?php echo $fac; ?></div>
 		</div>
 		<?php 
 		}
@@ -41,7 +41,7 @@ get_header(); ?>
 		?>
 		<div class="data-item">
 			<span>MWDC</span>
-			<h2 class="count"><?php echo $cap; ?></h2>
+			<div class="count"><?php echo $cap; ?></div>
 		</div>
 		<?php 
 		}
@@ -49,7 +49,7 @@ get_header(); ?>
 		?>
 		<div class="data-item">
 			<span>Total MWh</span>
-			<h2 class="count"><?php echo $mwh; ?></h2>
+			<div class="count"><?php echo $mwh; ?></div>
 		</div>
 		<?php 
 		}
@@ -57,7 +57,7 @@ get_header(); ?>
 		?>
 		<div class="data-item">
 			<span>Households Supplied</span>
-			<h2 class="count"><?php echo $houses; ?></h2>
+			<div class="count"><?php echo $houses; ?></div>
 		</div>
 		<?php 
 		}
@@ -65,7 +65,7 @@ get_header(); ?>
 		?>
 		<div class="data-item">
 			<span>CO2 Avoided</span>
-			<h2 class="count"><?php echo $co2; ?></h2>
+			<div class="count"><?php echo $co2; ?></div>
 		</div>
 		<?php } ?>
 	</div>

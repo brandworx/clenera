@@ -82,7 +82,8 @@ function clenera_setup() {
 	//Custom Thumbnail Sizes
 	add_image_size( 'head', 2000, 400, true ); // (cropped)
 	add_image_size( 'big', 1700, 1024, true ); // (cropped)
-	add_image_size( 'team', 250, 150, true ); // (cropped)
+	add_image_size( 'team', 300, 180, true ); // (cropped)
+	add_image_size( 'column', 285, 285, true ); // (cropped)
 }
 endif; // clenera_setup
 add_action( 'after_setup_theme', 'clenera_setup' );
@@ -140,6 +141,10 @@ function clenera_scripts() {
 	wp_enqueue_script( 'map-interact', get_template_directory_uri() . '/js/map/map-interact.js', array(), '1', true );
 
 	wp_enqueue_script( 'textimate-script', get_template_directory_uri() . '/js/textimate/main.js', array(), '1', true );
+
+	wp_enqueue_script( 'parallax-script', get_template_directory_uri() . '/js/parallax/jquery.imageScroll.js', array(), '1', true );
+
+	wp_enqueue_script( 'flowtype-script', get_template_directory_uri() . '/js/flowtype.js', array(), '1', true );
 
 	wp_enqueue_script( 'custom-scripts', get_template_directory_uri() . '/js/custom.js', array(), '1', true );
 
@@ -233,9 +238,11 @@ function theme_settings_styles() {
 	$def = get_field('header_image','option');
 	$size = 'big';
 	$headImg = $def['sizes'][$size];
+	$dataBgOne = get_field('data_section_1_bg','option');
     ?>
     <style type="text/css">
     	#homeBG { background: url("<?php echo $headImg; ?>") no-repeat; background-size: 100%; }
+    	#solarData { background: url("<?php echo $dataBgOne; ?>") no-repeat #D2DBE2; background-size: 100%; background-position-y: 28%; }
 	</style>
     <?php
 }

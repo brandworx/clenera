@@ -21,9 +21,9 @@
 	<div class="entry-content">
 		<?php if($MWp || $cod || $ppa) { ?>
 		<ul id="projectMeta">
-			<?php if($MWp) { ?><li>MWDC<h2 class="count"><?php echo $MWp; ?></h2></li><?php } ?>
-			<?php if($MWp) { ?><li>Households Supplied<h2 class="count"><?php echo $MWp * 164; ?></span></li><?php } ?>
-			<?php if($ppa) { ?><li>PPA Term (Years)<h2 class="count"><?php echo $ppa; ?></h2></li><?php } ?>
+			<?php if($MWp) { ?><li>MWDC<div class="count"><?php echo $MWp; ?></div></li><?php } ?>
+			<?php if($MWp) { ?><li>Households Supplied<div class="count"><?php echo $MWp * 164; ?></div></li><?php } ?>
+			<?php if($ppa) { ?><li>PPA Term (Years)<div class="count"><?php echo $ppa; ?></div></li><?php } ?>
 		</ul>
 		<?php } ?>
 

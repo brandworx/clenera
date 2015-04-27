@@ -4,6 +4,15 @@
  */
 ?>
 
+<?php
+$imageOption_1 = get_field('image_option_1');
+$imageOption_2 = get_field('image_option_2');
+$size = 'team';
+$image1 = $imageOption_1['sizes'][$size];
+$image2 = $imageOption_2['sizes'][$size];
+$select2 = get_field('use_image_2');
+?>
+
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
 		<h1 class="entry-title"><?php the_title(); ?></h1>
@@ -11,7 +20,11 @@
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php the_post_thumbnail('medium', array('class'=>'alignleft')); ?>
+		<?php if($select2 && $imageOption_2) { 
+			echo '<img class="alignleft" src="' . $image2 . '" />'; 
+		} else {
+			echo '<img class="alignleft" src="' . $image1 . '" />';
+		} ?>
 		<?php the_content(); ?>
 
 		<div class="clearfix"></div>

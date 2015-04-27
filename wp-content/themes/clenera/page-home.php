@@ -12,118 +12,106 @@
 
 get_header(); ?>
 
-<?php //get_template_part('content','head'); ?>
+<section id="homeVidWrap">
+	<video id="homeVid" width="400" autoplay>
+	  <source src="<?php the_field('video','option'); ?>" type="video/mp4">
+	</video>
+	<h1 id="homeTitle" class="home-title cd-headline push">
+		<span>Welcome the Era of </span> 
+		<span class="cd-words-wrapper">
+			<b class="is-visible">Clean</b>
+			<b>Safe</b>
+			<b>Renewable</b>
+		</span>
+		Energy
+	</h1>
+	<h1 id="homeSubTitle" class="home-title">Clēnera</h1>
+	<a class="more-arrow" href="#solarData"></a>
+</section>
 
+<section id="solarData">
+	<?php
+	$dataTitleOne = get_field('data_section_1_title','option');
+	$dataTextOne = get_field('data_section_1_text','option');
+	$dataCTAOne = get_field('data_section_1_cta','option');
+	$dataLinkOne = get_field('data_section_1_link','option');
 
-<?php //putRevSlider("home_video") ?>
+	if($dataTitleOne) {
+		echo '<h2>' . $dataTitleOne . '</h2>';
+	}
+	if($dataTextOne) {
+		echo '<p>' . $dataTextOne . '</p>';
+	}
+	if($dataCTAOne && $dataLinkOne) {
+		echo '<a class="button dark" href="' . $dataLinkOne . '">' . $dataCTAOne . '</a>';
+	}
+	?>
+</section>
 
+<section id="cleneraDataWrap">
+	<?php
+	$dataTitleTwo = get_field('data_section_2_title','option');
+	$dataTextTwo = get_field('data_section_2_text','option');
+	$dataCTATwo = get_field('data_section_2_cta','option');
+	$dataLinkTwo = get_field('data_section_2_link','option');
+	$dataBGTwo = get_field('data_section_2_bg','option');
 
-<video id="homeVid" width="400" autoplay>
-  <source src="<?php the_field('video','option'); ?>" type="video/mp4">
-</video>
-<h1 id="homeTitle" class="home-title cd-headline push">
-	<span>Welcome the Era of </span> 
-	<span class="cd-words-wrapper">
-		<b class="is-visible">Clean Energy</b>
-		<b>Safe Energy</b>
-		<b>Renewable Energy</b>
-	</span>
-</h1>
-<!-- <h1 id="homeTitle" class="home-title"><span class="one">Welcome the Era of Clean,</span><br><span class="two">Safe,</span><span class="three"> Renewable Energy</span></h1> -->
-<h2 id="homeSubTitle" class="home-title">Clēnera</h2>
+	if($dataBGTwo) { ?>
+		<div class="parallax" data-image="<?php echo bloginfo('template_url'); ?>/images/homeBG.jpg"></div>
+	<?php } ?>
 
-<!-- <div id="homeBG">
-	<h1><?php //the_field('featured_title','option'); ?></h1>
-</div> -->
+	<div id="cleneraData">
+		<div id="innerData">
+			<?php if($dataTitleTwo) {
+				echo '<h2>' . $dataTitleTwo . '</h2>';
+			}
+			if($dataTextTwo) {
+				echo '<p>' . $dataTextTwo . '</p>';
+			}
+			if($dataCTATwo && $dataLinkTwo) {
+				echo '<a class="button dark" href="' . $dataLinkTwo . '">' . $dataCTATwo . '</a>';
+			}
+			?>
+		</div>
+	</div>
+</section>
 
-<div id="contentWrap">
-	<div id="primary" class="content-area full">
-		<main id="main" class="site-main" role="main">
+<section id="columns">
+	<?php
+	$column1_img = get_field('column_1_image','option');
+	$column2_img = get_field('column_2_image','option');
+	$column3_img = get_field('column_3_image','option');
+	$columnSize = 'column';
+	$thumb1 = $column1_img['sizes'][ $columnSize ];
+	$thumb2 = $column2_img['sizes'][ $columnSize ];
+	$thumb3 = $column3_img['sizes'][ $columnSize ];
+	?>
+	<a id="column1" class="column" href="<?php the_field('column_1_link','option'); ?>">
+		<img src="<?php echo $thumb1; ?>" />
+		<h2><?php the_field('column_1_title','option'); ?></h2>
+	</a>
+	<a id="column2" class="column" href="<?php the_field('column_2_link','option'); ?>">
+		<img src="<?php echo $thumb2; ?>" />
+		<h2><?php the_field('column_2_title','option'); ?></h2>
+	</a>
+	<a id="column3" class="column" href="<?php the_field('column_3_link','option'); ?>">
+		<img src="<?php echo $thumb3; ?>" />
+		<h2><?php the_field('column_3_title','option'); ?></h2>
+	</a>
 
-				<section id="featured">
-					<h1><?php the_field('featured_title','option'); ?></h1>
-					<?php
-						$fac = get_field('facilities','option');
-						$cap = get_field('capacity','option');
-						$mwh = get_field('total_mwh','option');
-						$houses = get_field('households_supplied','option');
-						$co2 = get_field('co2_avoided','option');
-						// $fac = number_format($facN);
-						// $cap = number_format($capN);
-						// $mwh = number_format($mwhN);
-						// $houses = number_format($housesN);
-						// $co2 = number_format($co2N);
+</section>	
 
-					if ($fac || $cap || $mwh || $houses || $co2) {
-					?>
-					<div id="data">
-						<?php if($fac) { ?>
-						<div class="data-item">
-							<span>Facilities</span>
-							<h2 class="count"><?php echo $fac; ?></h2>
-						</div>
-						<?php 
-						}
-						if($cap) {
-						?>
-						<div class="data-item">
-							<span>MWDC</span>
-							<h2 class="count"><?php echo $cap; ?></h2>
-						</div>
-						<?php 
-						}
-						if($mwh) {
-						?>
-						<div class="data-item">
-							<span>Total MWh</span>
-							<h2 class="count"><?php echo $mwh; ?></h2>
-						</div>
-						<?php 
-						}
-						if($houses) {
-						?>
-						<div class="data-item">
-							<span>Households Supplied</span>
-							<h2 class="count"><?php echo $houses; ?></h2>
-						</div>
-						<?php 
-						}
-						if($co2) {
-						?>
-						<div class="data-item">
-							<span>CO2 Avoided</span>
-							<h2 class="count"><?php echo $co2; ?></h2>
-						</div>
-						<?php } ?>
-					</div>
-					<?php } ?>
+<section id="contact">
+	<?php
+	$contactTitle = get_field('contact_title','option');
+	$contactForm = get_field('form_shortcode','option');
+	?>
 
-					<div class="text">
-						<?php the_field('featured_text','option'); ?>
-					</div>
-					<a class="button" href="<?php the_field('featured_link','option'); ?>"><?php the_field('featured_cta','option'); ?></a>
-				</section>
+	<h2><?php if($contactTitle){ echo $contactTitle; } ?></h2>
+	<div id="contactForm">
+		<?php if($contactForm){ echo do_shortcode($contactForm); } ?>
+	</div>
 
-				<!-- <section id="projects">
-					<?php
-					$projects = get_field('projects','option');
-					foreach($projects as $post) :
-					?>
-					<?php setup_postdata($post); ?>
-
-						<div class="project-entry">
-							<a href="<?php the_permalink(); ?>">
-								<?php the_post_thumbnail('thumbnail'); ?>
-								<h4 class="project-title"><?php the_field('project_city'); ?>, <?php the_field('project_state'); ?></h4>
-							</a>
-						</div>
-					<?php endforeach; ?>
-					<?php wp_reset_postdata($post); ?>
-					<a id="mobileProjectsMore" class="button dark" href="<?php the_field('projects_link','option'); ?>"><?php the_field('projects_cta','option'); ?></a>
-				</section> -->
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-</div>
+</section>	
 
 <?php get_footer(); ?>

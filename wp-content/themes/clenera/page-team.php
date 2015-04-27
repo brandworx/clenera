@@ -39,17 +39,33 @@ get_header(); ?>
 
 			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-			query_posts( array( 'post_type' => 'team_member', 'orderby' => 'date', 'order' => 'ASC', 'posts_per_page' => -1, 'paged' => $paged ) );
+			query_posts( array( 'post_type' => 'team_member', 'roles' => 'leadership', 'orderby' => 'date', 'order' => 'ASC', 'posts_per_page' => -1, 'paged' => $paged ) );
 
 			if(have_posts()) : ?> 
 
-				<section id="teamPage">
+				<section id="leadership" class="team-section">
+					<h2 class="team-title">Leadership</h2>
 
 				<?php while(have_posts()) : the_post(); ?>
 
+				<?php 
+				$imageOption_1 = get_field('image_option_1');
+				$imageOption_2 = get_field('image_option_2');
+				$size = 'team';
+				$image1 = $imageOption_1['sizes'][$size];
+				$image2 = $imageOption_2['sizes'][$size];
+				$select2 = get_field('use_image_2');
+				?>
+
 					<div class="team-entry">
-						<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('team'); ?></a>
-						<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+						<a href="<?php the_permalink(); ?>">
+						<?php if($select2 && $imageOption_2) { 
+							echo '<img class="alignleft" src="' . $image2 . '" />'; 
+						} else {
+							echo '<img class="alignleft" src="' . $image1 . '" />';
+						} ?>
+						</a>
+						<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
 						<h6><?php the_field('title'); ?></h6>
 						<?php the_excerpt(); ?>
 					</div>
@@ -70,6 +86,107 @@ get_header(); ?>
 
 			<?php wp_reset_query(); ?>
 			<!-- END THE LEADERSHIP SECTION -->
+
+			<!-- START THE MANAGEMENT SECTION -->
+			<?php
+
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+			query_posts( array( 'post_type' => 'team_member', 'roles' => 'management', 'orderby' => 'title', 'order' => 'ASC', 'posts_per_page' => -1, 'paged' => $paged ) );
+
+			if(have_posts()) : ?> 
+
+				<section id="management" class="team-section">
+					<h2 class="team-title">Management</h2>
+
+				<?php while(have_posts()) : the_post(); ?>
+
+				<?php 
+				$imageOption_1 = get_field('image_option_1');
+				$imageOption_2 = get_field('image_option_2');
+				$size = 'team';
+				$image1 = $imageOption_1['sizes'][$size];
+				$image2 = $imageOption_2['sizes'][$size];
+				$select2 = get_field('use_image_2');
+				?>
+
+
+					<div class="team-entry">
+						<?php if($select2 && $imageOption_2) { 
+							echo '<img class="alignleft" src="' . $image2 . '" />'; 
+						} else {
+							echo '<img class="alignleft" src="' . $image1 . '" />';
+						} ?>
+						<h3><?php the_title(); ?></h3>
+						<h6><?php the_field('title'); ?></h6>
+					</div>
+
+				<?php endwhile; ?>
+
+				</section>
+			
+				<!-- <div id="posts-nav">
+					<span class="alignright"><?php next_posts_link(); ?></span>
+					<span class="alignleft"><?php previous_posts_link(); ?></span>
+				</div> -->
+				<?php //the_posts_navigation(); ?>
+
+				<div class="clearfix"></div>
+
+			<?php endif; ?>
+
+			<?php wp_reset_query(); ?>
+			<!-- END THE MANAGEMENT SECTION -->
+
+			<!-- START THE TEAM SECTION -->
+			<?php
+
+			$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+
+			query_posts( array( 'post_type' => 'team_member', 'roles' => 'team', 'orderby' => 'title', 'order' => 'ASC', 'posts_per_page' => -1, 'paged' => $paged ) );
+
+			if(have_posts()) : ?> 
+
+				<section id="team" class="team-section">
+					<h2 class="team-title">Team</h2>
+
+				<?php while(have_posts()) : the_post(); ?>
+
+				<?php 
+				$imageOption_1 = get_field('image_option_1');
+				$imageOption_2 = get_field('image_option_2');
+				$size = 'team';
+				$image1 = $imageOption_1['sizes'][$size];
+				$image2 = $imageOption_2['sizes'][$size];
+				$select2 = get_field('use_image_2');
+				?>
+
+					<div class="team-entry">
+						<?php if($select2 && $imageOption_2) { 
+							echo '<img class="alignleft" src="' . $image2 . '" />'; 
+						} else {
+							echo '<img class="alignleft" src="' . $image1 . '" />';
+						} ?>
+						<h3><?php the_title(); ?></h3>
+						<h6><?php the_field('title'); ?></h6>
+					</div>
+
+				<?php endwhile; ?>
+
+				</section>
+			
+				<!-- <div id="posts-nav">
+					<span class="alignright"><?php next_posts_link(); ?></span>
+					<span class="alignleft"><?php previous_posts_link(); ?></span>
+				</div> -->
+				<?php //the_posts_navigation(); ?>
+
+				<div class="clearfix"></div>
+
+			<?php endif; ?>
+
+			<?php wp_reset_query(); ?>
+			<!-- END THE TEAM SECTION -->
 
 				</div><!-- .entry-content -->
 				
