@@ -279,7 +279,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 { font-size: 3.2em; }
 h2 { font-size: 2em; }
-h3 { font-size: 1.25em; }
+h3 { font-size: 1.15em; }
 h4 { font-size: 1em; }
 h5 { font-size: .75em; }
 h6 { font-size: .5em; }
@@ -967,10 +967,10 @@ object {
 	clear: both;
 	display: inline-block;
 	vertical-align: top;
-	background: #0e81ad;
-	border: solid 3px #0e81ad;
+	background: #13283A;
+	border: solid 3px #13283A;
 	box-shadow: 1px 1px 2px #A1A1A1;
-	color: #dfdfdf;
+	color: #E6DFAC;
 	padding: 15px 20px;
 	/*font-size: 24px;*/
 	font-weight: bold;
@@ -982,7 +982,7 @@ object {
 	-o-transition: all 500ms ease;
 	transition: all 500ms ease;
 }
-.button:hover, button:hover { text-decoration: none; background: #dfdfdf; color: #0e81ad; }
+.button:hover, button:hover { text-decoration: none; background: #dfdfdf; color: #13283A; }
 input:hover, textarea:hover { text-decoration: none; background: #dfdfdf; }
 .button.dark { background: #13283A; border: solid 3px #13283A; }
 .button.dark:hover { background: #dfdfdf; color: #13283A; }
@@ -1015,7 +1015,7 @@ input:hover, textarea:hover { text-decoration: none; background: #dfdfdf; }
 	border-radius: 100%;
 	text-align: center;
 }
-.more-arrow:hover { opacity: .85; cursor: pointer; }
+.more-arrow:hover { cursor: pointer; }
 .more-arrow:before {
 	content: '';
 	position: absolute;
@@ -1059,14 +1059,14 @@ input:hover, textarea:hover { text-decoration: none; background: #dfdfdf; }
 	padding: 12% 0;
 	/*font-size: 4em;*/
 	color: #0e81ad;
-	text-shadow: 2px 2px 2px #CFCFCF;
+	text-shadow: 2px 2px 2px #4A4A4A;
 }
 #homeSubTitle {
 	display: none;
 	padding: 20% 0;
 	font-size: 7em;
 	color: #253745;
-	text-shadow: 2px 2px 2px #CFCFCF;
+	text-shadow: 2px 2px 2px #4A4A4A;
 }
 
 #homeBG {
@@ -1109,7 +1109,7 @@ input:hover, textarea:hover { text-decoration: none; background: #dfdfdf; }
 	padding: 70px 4%;
 }
 #cleneraData h2 { /*font-size: 32px;*/ margin-bottom: 20px; }
-#cleneraData p { /*font-size: 24px;*/ margin-bottom: 20px; }
+#cleneraData p { font-size: 24px; margin-bottom: 20px; }
 #columns { background: #253745; margin: 0 0 0 0; text-align: center; padding: 7% 0; }
 .column {
 	display: inline-block;

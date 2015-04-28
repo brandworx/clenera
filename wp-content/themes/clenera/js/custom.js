@@ -70,4 +70,13 @@ jQuery(document).ready(function($){
 	  });
 	});
 
+    $('.more-arrow').hover(function(){
+		$(this).animate({
+			bottom: "+=1%",
+		}, 300);
+	}, function(){
+		$(this).animate({
+			bottom: "-=1%",
+		}, 300);
+	});
 });

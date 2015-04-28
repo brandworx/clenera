@@ -43,7 +43,7 @@ get_header(); ?>
 		echo '<p>' . $dataTextOne . '</p>';
 	}
 	if($dataCTAOne && $dataLinkOne) {
-		echo '<a class="button dark" href="' . $dataLinkOne . '">' . $dataCTAOne . '</a>';
+		echo '<a class="button" href="' . $dataLinkOne . '">' . $dataCTAOne . '</a>';
 	}
 	?>
 </section>
@@ -69,7 +69,7 @@ get_header(); ?>
 				echo '<p>' . $dataTextTwo . '</p>';
 			}
 			if($dataCTATwo && $dataLinkTwo) {
-				echo '<a class="button dark" href="' . $dataLinkTwo . '">' . $dataCTATwo . '</a>';
+				echo '<a class="button" href="' . $dataLinkTwo . '">' . $dataCTATwo . '</a>';
 			}
 			?>
 		</div>
