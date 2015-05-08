@@ -52,16 +52,16 @@ get_header(); ?>
 				$imageOption_1 = get_field('image_option_1');
 				$imageOption_2 = get_field('image_option_2');
 				$size = 'team';
-				$image1 = $imageOption_1['sizes'][$size];
-				$image2 = $imageOption_2['sizes'][$size];
 				$select2 = get_field('use_image_2');
 				?>
 
 					<div class="team-entry">
 						<a href="<?php the_permalink(); ?>">
 						<?php if($select2 && $imageOption_2) { 
+							$image2 = $imageOption_2['sizes'][$size];
 							echo '<img class="alignleft" src="' . $image2 . '" />'; 
 						} else {
+							$image1 = $imageOption_1['sizes'][$size];
 							echo '<img class="alignleft" src="' . $image1 . '" />';
 						} ?>
 						</a>
@@ -105,16 +105,16 @@ get_header(); ?>
 				$imageOption_1 = get_field('image_option_1');
 				$imageOption_2 = get_field('image_option_2');
 				$size = 'team';
-				$image1 = $imageOption_1['sizes'][$size];
-				$image2 = $imageOption_2['sizes'][$size];
 				$select2 = get_field('use_image_2');
 				?>
 
 
 					<div class="team-entry">
 						<?php if($select2 && $imageOption_2) { 
+							$image2 = $imageOption_2['sizes'][$size];
 							echo '<img class="alignleft" src="' . $image2 . '" />'; 
 						} else {
+							$image1 = $imageOption_1['sizes'][$size];
 							echo '<img class="alignleft" src="' . $image1 . '" />';
 						} ?>
 						<h3><?php the_title(); ?></h3>
@@ -156,15 +156,15 @@ get_header(); ?>
 				$imageOption_1 = get_field('image_option_1');
 				$imageOption_2 = get_field('image_option_2');
 				$size = 'team';
-				$image1 = $imageOption_1['sizes'][$size];
-				$image2 = $imageOption_2['sizes'][$size];
 				$select2 = get_field('use_image_2');
 				?>
 
 					<div class="team-entry">
 						<?php if($select2 && $imageOption_2) { 
+							$image2 = $imageOption_2['sizes'][$size];
 							echo '<img class="alignleft" src="' . $image2 . '" />'; 
 						} else {
+							$image1 = $imageOption_1['sizes'][$size];
 							echo '<img class="alignleft" src="' . $image1 . '" />';
 						} ?>
 						<h3><?php the_title(); ?></h3>

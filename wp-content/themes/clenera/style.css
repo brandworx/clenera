@@ -353,6 +353,7 @@ big {
 --------------------------------------------------------------*/
 html {
 	box-sizing: border-box;
+	height: 100%;
 }
 
 *,
@@ -363,6 +364,7 @@ html {
 
 body {
 	background: #ffffff; /* Fallback for when there is no custom background color defined. */
+	height: 100%;
 }
 
 blockquote:before,
@@ -796,11 +798,11 @@ a:active {
 /*--------------------------------------------------------------
 10.0 Content
 --------------------------------------------------------------*/
-#page { width: 100%; overflow: auto; }
+#page { width: 100%; overflow: auto; padding-bottom: 7%; }
 /*footer .contain { width: 100%; max-width: 1700px; margin: 0 auto; }*/
 #content { background: #ffffff; position: relative; top: 80px; }
 .page-template-page-team #content { margin-top: 110px; }
-#contentWrap { padding: 3%; overflow: auto; }
+#contentWrap { padding: 3%; }
 .full { width: 100% !important; }
 #primary { width: 90%; max-width: 1700px; margin: 0 auto; }
 #secondary { display: none; float: right; width: 20%; }
@@ -813,7 +815,7 @@ a:active {
 }
 
 .hentry {
-	margin: 0 0 1.5em;
+	margin: 0 0 2.5em;
 }
 
 .byline,
@@ -1047,6 +1049,7 @@ input:hover, textarea:hover { text-decoration: none; background: #dfdfdf; }
 	transition: all 500ms ease;
 }
 #homeVidWrap { position: relative; }
+#homeVidBG { display: none; }
 #homeVid { width: 100%; }
 .home-title {
 	position: absolute;
@@ -1100,6 +1103,7 @@ input:hover, textarea:hover { text-decoration: none; background: #dfdfdf; }
 	background: rgba(255, 255, 255, 0.75);
 	text-align: center;
 }
+#parallax-backup { display: none; }
 #innerData {
 	position: absolute;
 	top: 0; left: 0; bottom: 0; right: 0;
@@ -1504,6 +1508,10 @@ input:hover, textarea:hover { text-decoration: none; background: #dfdfdf; }
 		right: 0;
 		margin-top: 10px;
 	}
+	#homeVidBG { display: block; }
+	#homeVid { display: none; }
+	.parallax, .imageHolder { display: none !important; }
+	#parallax-backup { display: block; }
 	#featured .text p { display: none; }
 	#featured .text p:first-child { display: block; }
 	#featured .button { width: 50%; }
@@ -1545,6 +1553,7 @@ input:hover, textarea:hover { text-decoration: none; background: #dfdfdf; }
 	#column2, .column { width: 40%; margin: 0 auto 30px; display: block; }
 	.alignright, .alignleft { float: none; }
 	#footerCTA #mobileFootCTA.button { width: 60%; }
+	#innerData { padding: 100px 4%; }
 }
 @media only screen and (max-width: 400px){
 	.team-entry { width: auto; display: block; margin: 0 auto 8%; }

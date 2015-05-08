@@ -13,8 +13,10 @@
 get_header(); ?>
 
 <section id="homeVidWrap">
-	<video id="homeVid" width="400" autoplay>
-	  <source src="<?php the_field('video','option'); ?>" type="video/mp4">
+	<img id="homeVidBG" src="<?php the_field('video_bg','option'); ?>" />
+	<video id="homeVid" width="400" poster="<?php the_field('video_bg','option'); ?>" preload="auto" autoplay>
+		<source src="<?php the_field('video_1','option'); ?>" type="video/mp4">
+		<source src="<?php the_field('video_2','option'); ?>" type="video/ogg">
 	</video>
 	<h1 id="homeTitle" class="home-title cd-headline push">
 		<span>Welcome the Era of </span> 
@@ -59,6 +61,7 @@ get_header(); ?>
 	if($dataBGTwo) { ?>
 		<div class="parallax" data-image="<?php echo bloginfo('template_url'); ?>/images/homeBG.jpg"></div>
 	<?php } ?>
+	<img id="parallax-backup" src="<?php echo bloginfo('template_url'); ?>/images/homeBG.jpg" />
 
 	<div id="cleneraData">
 		<div id="innerData">
