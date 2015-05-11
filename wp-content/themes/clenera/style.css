@@ -1061,15 +1061,16 @@ input:hover, textarea:hover { text-decoration: none; background: #dfdfdf; }
 #homeTitle {
 	padding: 12% 0;
 	/*font-size: 4em;*/
-	color: #0e81ad;
-	text-shadow: 2px 2px 2px #4A4A4A;
+	color: #253745;
+	/*text-shadow: 2px 2px 2px #4A4A4A;*/
 }
+#homeTitle .cd-words-wrapper { color: #0e81ad; }
 #homeSubTitle {
 	display: none;
 	padding: 20% 0;
 	font-size: 7em;
 	color: #253745;
-	text-shadow: 2px 2px 2px #4A4A4A;
+	/*text-shadow: 2px 2px 2px #4A4A4A;*/
 }
 
 #homeBG {
@@ -1100,7 +1101,7 @@ input:hover, textarea:hover { text-decoration: none; background: #dfdfdf; }
 	top: 0; left: 0; bottom: 0; right: 0;
 	margin: auto;
 	width: 50%;
-	background: rgba(255, 255, 255, 0.75);
+	background: rgba(255, 255, 255, 0.22);
 	text-align: center;
 }
 #parallax-backup { display: none; }
@@ -1113,7 +1114,7 @@ input:hover, textarea:hover { text-decoration: none; background: #dfdfdf; }
 	padding: 70px 4%;
 }
 #cleneraData h2 { /*font-size: 32px;*/ margin-bottom: 20px; }
-#cleneraData p { font-size: 24px; margin-bottom: 20px; }
+#cleneraData p { font-size: 24px; margin-bottom: 20px; color: #000000; }
 #columns { background: #253745; margin: 0 0 0 0; text-align: center; padding: 7% 0; }
 .column {
 	display: inline-block;

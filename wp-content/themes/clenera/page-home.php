@@ -59,9 +59,9 @@ get_header(); ?>
 	$dataBGTwo = get_field('data_section_2_bg','option');
 
 	if($dataBGTwo) { ?>
-		<div class="parallax" data-image="<?php echo bloginfo('template_url'); ?>/images/homeBG.jpg"></div>
+		<div class="parallax" data-image="<?php echo $dataBGTwo; ?>"></div>
 	<?php } ?>
-	<img id="parallax-backup" src="<?php echo bloginfo('template_url'); ?>/images/homeBG.jpg" />
+	<img id="parallax-backup" src="<?php echo $dataBGTwo; ?>" />
 
 	<div id="cleneraData">
 		<div id="innerData">
